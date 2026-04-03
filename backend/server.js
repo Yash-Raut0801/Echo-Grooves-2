@@ -47,7 +47,7 @@ const query = (sql, params = []) =>
 //  VINYL ROUTES
 // ════════════════════════════════════════════════════════════
 
-app.get("/api/vinyls", async (req, res) => {
+app.get("https://echo-grooves-2.onrender.com/api/vinyls", async (req, res) => {
   try {
     let sql = "SELECT * FROM vinyls WHERE 1=1";
     const vals = [];
@@ -69,7 +69,7 @@ app.get("/api/vinyls", async (req, res) => {
   }
 });
 
-app.get("/api/vinyls/:id", async (req, res) => {
+app.get("https://echo-grooves-2.onrender.com/api/vinyls/:id", async (req, res) => {
   try {
     const [vinyl] = await query("SELECT * FROM vinyls WHERE id = ?", [req.params.id]);
     if (!vinyl) return res.status(404).json({ error: "Vinyl not found" });
@@ -83,7 +83,7 @@ app.get("/api/vinyls/:id", async (req, res) => {
 //  USER ROUTES
 // ════════════════════════════════════════════════════════════
 
-app.post("/api/register", async (req, res) => {
+app.post("https://echo-grooves-2.onrender.com/api/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
     if (!name || !email || !password)
@@ -102,7 +102,7 @@ app.post("/api/register", async (req, res) => {
   }
 });
 
-app.post("/api/login", async (req, res) => {
+app.post("https://echo-grooves-2.onrender.com/api/login", async (req, res) => {
   try {
     const { email, password } = req.body;
     const [user] = await query(
@@ -120,7 +120,7 @@ app.post("/api/login", async (req, res) => {
 //  ORDER ROUTES
 // ════════════════════════════════════════════════════════════
 
-app.post("/api/orders", async (req, res) => {
+app.post("https://echo-grooves-2.onrender.com/api/orders", async (req, res) => {
   try {
     const { userId, items } = req.body;
     if (!userId || !items || !items.length)
@@ -151,7 +151,7 @@ app.post("/api/orders", async (req, res) => {
   }
 });
 
-app.get("/api/orders/:userId", async (req, res) => {
+app.get("https://echo-grooves-2.onrender.com/api/orders/:userId", async (req, res) => {
   try {
     const orders = await query(
       "SELECT * FROM orders WHERE user_id = ? ORDER BY created_at DESC",

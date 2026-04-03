@@ -2,7 +2,7 @@
 //  ECHO-GROOVES  |  Frontend App
 // ════════════════════════════════════════════════════════════
 
-const API = "http://localhost:3000/api";
+const API = "https://echo-grooves-2.onrender.com";
 
 let currentUser = JSON.parse(localStorage.getItem("eg_user")) || null;
 let cart        = JSON.parse(localStorage.getItem("eg_cart")) || [];
